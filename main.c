@@ -1,5 +1,4 @@
 #include "board.h"
-#include <assert.h>
 #include <math.h>
 #include <raylib.h>
 #include <stdint.h>
@@ -10,7 +9,7 @@ uint8_t	**tmpBoard;
 
 float	speed = 5;
 bool	paused = 1;
-double	timetoWait = 1;
+double	timetoWait = 0.2; // 1/5
 Color colors[] = {WHITE, BLACK};
 
 void	drawCell(uint32_t x, uint32_t y, uint32_t size, uint32_t length, Color color){
@@ -54,7 +53,7 @@ void freeBoards(){
 
 char *formatTitle(){
 	static char buff[100];
-	static char *states[] = {"PAUSED", "RUNNING"};
+	static char *states[] = {"RUNNING", "PAUSED"};
 
 	sprintf(buff, "Conway's Game of Life --%s-- --SPEED X%.2f--", states[paused], speed);
 	return buff;

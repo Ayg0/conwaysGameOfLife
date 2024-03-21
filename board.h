@@ -15,7 +15,7 @@
 #define SCREENHEIGHT 720
 
 void	updateBoard();
-void	handleKeyPress();
-void handleMouseClick(uint32_t size);
 char	*formatTitle();
+void	handleKeyPress();
+void	handleMouseClick(uint32_t size);
 void	drawCell(uint32_t x, uint32_t y, uint32_t size, uint32_t length, Color color);
