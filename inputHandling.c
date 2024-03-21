@@ -14,18 +14,17 @@ extern Color colors[];
 
 void handleKeyPress(){
 	int key = GetCharPressed();
+
 	if (key == 'P' || key == 'p'){
 		paused = !paused;
 		SetWindowTitle(formatTitle());
 	}
-	if (paused && key == 'n')
+	else if (paused && key == 'n' || key == 'N')
 		updateBoard();
-	if (key == '+' || key == '-'){
+	else if (key == '+' || key == '-'){
 		key == '+' ? speed += 0.5 : key == '-' ? speed -= 0.5 : speed;
 		speed = speed > 10 ? 10 : speed < 0.5 ? 0.5 : speed;
-		printf("timeToWait = %f\n", timetoWait);
 		timetoWait = 1 / speed;
-		printf("timeToWait = %f\n", timetoWait);
 		SetWindowTitle(formatTitle());
 	}
 }

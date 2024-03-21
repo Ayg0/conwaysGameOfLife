@@ -34,7 +34,6 @@ void	updateBoard(){
 	static double lastUpdate = 0;
 
 	double now = GetTime();
-	printf("%f, %f, %f\n", now, lastUpdate, timetoWait);
 	if (now - lastUpdate < timetoWait)
 		return ;
 
