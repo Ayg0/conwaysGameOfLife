@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS=  -Werror -Wall -Wextra -g
 LFLAGS= -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-SRCS = main.c
+SRCS = main.c boardUpdate.c inputHandling.c
 
 OBJS = ${SRCS:.c=.o}
 
