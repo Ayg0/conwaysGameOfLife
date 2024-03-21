@@ -1,4 +1,4 @@
-NAME = cgl
+NAME = conwaysGameOfLife
 
 CC = cc 
 
