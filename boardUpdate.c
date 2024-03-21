@@ -1,9 +1,10 @@
 #include "board.h"
 #include <stdint.h>
+#include <stdio.h>
 
 extern uint8_t	**board;
 extern uint8_t	**tmpBoard;
-extern float	timetoWait;
+extern double	timetoWait;
 
 uint8_t getCellValue(int32_t x, int32_t y){
 	if (x == -1 || x == COLS || y == -1 || y == ROWS)
@@ -33,6 +34,7 @@ void	updateBoard(){
 	static double lastUpdate = 0;
 
 	double now = GetTime();
+	printf("%f, %f, %f\n", now, lastUpdate, timetoWait);
 	if (now - lastUpdate < timetoWait)
 		return ;
 

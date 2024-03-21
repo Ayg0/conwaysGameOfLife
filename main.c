@@ -1,26 +1,30 @@
 #include "board.h"
 #include <assert.h>
 #include <math.h>
+#include <raylib.h>
+#include <stdint.h>
 #include <stdio.h>
 
 uint8_t	**board;
 uint8_t	**tmpBoard;
 
-float	speed = 2;
+float	speed = 5;
 bool	paused = 1;
-double	timetoWait = 2;
+double	timetoWait = 1;
+Color colors[] = {WHITE, BLACK};
+
+void	drawCell(uint32_t x, uint32_t y, uint32_t size, uint32_t length, Color color){
+		DrawRectangle(x * size, y * size,\
+						length, length, color);
+}
 
 void	drawBoard(uint32_t cols, uint32_t rows, uint32_t size){
-	uint32_t width, height;
+	uint32_t length;
 
-	width = height = size - paused;
+	length = size - paused;
 	for (uint32_t i = 0; i < rows; i++){
-		for (uint32_t j = 0; j < cols; j++){
-			if (board[i][j])
-				DrawRectangle(j * size, i * size, width, height, BLACK);
-			else
-				DrawRectangle(j * size, i * size, width, height, WHITE);
-		}
+		for (uint32_t j = 0; j < cols; j++)
+			drawCell(j, i, size, length, colors[board[i][j]]);
 	}
 }
 
@@ -60,6 +64,7 @@ int main(void)
 {
     const int screenWidth = SCREENWIDTH;
     const int screenHeight = SCREENHEIGHT;
+	const int cellSize = 10;
     InitWindow(screenWidth, screenHeight, formatTitle());
 	SetTargetFPS(60);
 	boardsInit();
@@ -67,9 +72,9 @@ int main(void)
     {
         BeginDrawing();
 		ClearBackground(BLACK);
-		drawBoard(COLS, ROWS, 10);
+		drawBoard(COLS, ROWS, cellSize);
 		if (paused)
-			handleMouseClick();
+			handleMouseClick(cellSize);
 		else
 			updateBoard();
 		handleKeyPress();

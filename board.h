@@ -16,5 +16,6 @@
 
 void	updateBoard();
 void	handleKeyPress();
-void	handleMouseClick();
+void handleMouseClick(uint32_t size);
 char	*formatTitle();
+void	drawCell(uint32_t x, uint32_t y, uint32_t size, uint32_t length, Color color);
