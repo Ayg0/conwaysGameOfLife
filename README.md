@@ -19,7 +19,7 @@ The Game of Life operates on a two-dimensional grid of cells, each of which can 
 
 - Simulate Conway's Game of Life on a grid.
 - Control the simulation speed.
-- PAUSED mode: Create and edit the initial state of the grid.
+- PAUSED mode: Create and edit the initial state of the grid and Advance the simulation one step at a time.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ The Game of Life operates on a two-dimensional grid of cells, each of which can 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/Ayg0/conwaysGameOfLifee.git
+    git clone https://github.com/Ayg0/conwaysGameOfLife.git
     ```
 
 2. Navigate to the project directory:
@@ -58,6 +58,7 @@ The Game of Life operates on a two-dimensional grid of cells, each of which can 
 - **-**: Slow down simulation.
 - **LEFT-CLICK**: Add a living cell --PAUSED ONLY--.
 - **RIGHT-CLICK**: Removing a living cell --PAUSED ONLY--.
+- **N**: Advance simulation by one frame --PAUSED ONLY--.
 
 ## examples:
 **Butterfly**
