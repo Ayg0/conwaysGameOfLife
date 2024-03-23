@@ -73,8 +73,9 @@ int main(int ac, char **av)
     const int screenHeight = SCREENHEIGHT;
 	const int cellSize = 10;
 	if (ac != 2)
-		return 1;
-	selectedRule = atoi(av[1]);
+		selectedRule = 0;
+	else
+		selectedRule = atoi(av[1]);
     InitWindow(screenWidth, screenHeight, formatTitle());
 	SetTargetFPS(60);
 	boardsInit();
