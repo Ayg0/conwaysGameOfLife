@@ -4,7 +4,8 @@ CC = cc
 
 CFLAGS=  -Werror -Wall -Wextra -g
 LFLAGS= -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-SRCS = main.c boardUpdate.c inputHandling.c
+SRCS_RULE= conwaysRuleFunction.c tahasRuleFunction.c
+SRCS = main.c boardUpdate.c inputHandling.c ${SRCS_RULE}
 
 OBJS = ${SRCS:.c=.o}
 

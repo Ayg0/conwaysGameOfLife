@@ -4,14 +4,6 @@
 #include <stdint.h>
 #include <stdio.h>
 
-extern float	speed;
-extern bool		paused;
-extern uint8_t	**board;
-extern uint8_t	**tmpBoard;
-extern double	timetoWait;
-extern Color colors[];
-
-
 void handleKeyPress(){
 	int key = GetCharPressed();
 
@@ -19,13 +11,20 @@ void handleKeyPress(){
 		paused = !paused;
 		SetWindowTitle(formatTitle());
 	}
-	else if (paused && key == 'n' || key == 'N')
-		updateBoard();
+	else if (paused && (key == 'n' || key == 'N'))
+		updateBoard(rules[selectedRule]);
 	else if (key == '+' || key == '-'){
 		key == '+' ? speed += 0.5 : key == '-' ? speed -= 0.5 : speed;
 		speed = speed > 10 ? 10 : speed < 0.5 ? 0.5 : speed;
 		timetoWait = 1 / speed;
 		SetWindowTitle(formatTitle());
+	}
+	else if (key == 'c' || key == 'C'){
+		for (uint32_t i = 0; i < ROWS; i++){
+			for (uint32_t j = 0; j < COLS; j++){
+				board[i][j] = 0;
+			}
+		}
 	}
 }
 
